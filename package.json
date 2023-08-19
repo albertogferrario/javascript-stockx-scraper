@@ -1,23 +1,27 @@
 {
-  "name": "package-name",
-  "version": "0.0.0",
-  "description": "",
+  "name": "@albertogferrario/stockx-scraper",
+  "version": "0.1.0",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "lint": "eslint \"**/*.{js,ts}\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webfucktory/node-package-template.git"
+    "url": "git+https://github.com/albertogferrario/javascript-stockx-scraper.git"
   },
-  "author": "",
+  "author": "albertogferrario",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/webfucktory/node-package-template/issues"
+    "url": "https://github.com/albertogferrario/javascript-stockx-scraper/issues"
   },
-  "homepage": "https://github.com/webfucktory/node-package-template#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/albertogferrario/javascript-stockx-scraper#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "https-proxy-agent": "^7.0.1"
+  },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",

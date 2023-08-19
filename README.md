@@ -1,3 +1,3 @@
-# node-package-template
+# javascript-stockx-scraper
 
 to do
