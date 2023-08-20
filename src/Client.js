@@ -2,7 +2,7 @@ import { Axios } from 'axios';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 export default class Client extends Axios {
-  constructor(baseURL, proxy = undefined) {
+  constructor(baseURL, cookies = undefined, proxy = undefined) {
     const args = {
       baseURL,
       headers: {
@@ -16,6 +16,10 @@ export default class Client extends Axios {
       },
     };
 
+    if (cookies) {
+      args.headers.Cookie = Client.makeCookiesString(cookies);
+    }
+
     if (proxy) {
       args.httpsAgent = new HttpsProxyAgent({
         host: proxy.host,
@@ -26,5 +30,13 @@ export default class Client extends Axios {
     }
 
     super(args);
+  }
+
+  static makeCookiesString = (cookiesObject) => {
+    let result = "";
+
+    for (const key in cookiesObject) result += `${key}=${cookiesObject[key]}; `;
+
+    return result;
   }
 }
