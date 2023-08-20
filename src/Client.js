@@ -33,10 +33,12 @@ export default class Client extends Axios {
   }
 
   static makeCookiesString = (cookiesObject) => {
-    let result = "";
+    let result = '';
 
-    for (const key in cookiesObject) result += `${key}=${cookiesObject[key]}; `;
+    Object.keys(cookiesObject).forEach((key) => {
+      result += `${key}=${cookiesObject[key]}; `;
+    });
 
     return result;
-  }
+  };
 }

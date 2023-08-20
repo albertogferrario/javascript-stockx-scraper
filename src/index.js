@@ -11,7 +11,7 @@ export default class StockXScraper {
         stockx_selected_locale: locale.toLowerCase(),
         stockx_selected_region: region.toUpperCase(),
       },
-      proxy
+      proxy,
     );
 
     this.products = new Product(client);
