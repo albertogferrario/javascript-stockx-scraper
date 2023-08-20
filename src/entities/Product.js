@@ -1,7 +1,7 @@
 import Entity from '../Entity';
 
 export default class Product extends Entity {
-  static parseResponse = (response) => super.parseResponse(response).data.product.variants;
+  static parseResponse = (response) => super.parseResponse(response);
 
-  getVariants = async (productSlug) => Product.parseResponse(await this.client.get(`/${productSlug}`));
+  get = async (productSlug) => Product.parseResponse(await this.client.get(`/${productSlug}`)).data.product;
 }
