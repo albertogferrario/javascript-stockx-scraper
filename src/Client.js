@@ -1,7 +1,7 @@
-import { Axios } from 'axios';
-import { HttpsProxyAgent } from 'https-proxy-agent';
+const { Axios } = require('axios');
+const { HttpsProxyAgent } = require('https-proxy-agent');
 
-export default class Client extends Axios {
+module.exports = class Client extends Axios {
   constructor(baseURL, cookies = undefined, proxy = undefined) {
     const args = {
       baseURL,
@@ -41,4 +41,4 @@ export default class Client extends Axios {
 
     return result;
   };
-}
+};

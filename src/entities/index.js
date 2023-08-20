@@ -1,4 +1,3 @@
-import Product from './Product';
+const Product = require('./Product');
 
-// eslint-disable-next-line import/prefer-default-export
-export { Product };
+module.exports = { Product };

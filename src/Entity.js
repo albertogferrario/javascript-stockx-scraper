@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import * as cheerio from 'cheerio';
+const cheerio = require('cheerio');
 
-export default class Entity {
+module.exports = class Entity {
   constructor(client) {
     this.client = client;
   }
@@ -17,4 +17,4 @@ export default class Entity {
     return JSON.parse(data).props.pageProps.req.appContext.states.query.value
       .queries[3].state;
   };
-}
+};

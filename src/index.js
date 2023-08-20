@@ -1,8 +1,13 @@
-import { Product } from './entities';
-import Client from './Client';
+const { Product } = require('./entities');
+const Client = require('./Client');
 
-export default class StockXScraper {
-  constructor(region = 'gb', locale = 'en', currency = 'eur', proxy = undefined) {
+module.exports = class StockXScraper {
+  constructor(
+    region = 'gb',
+    locale = 'en',
+    currency = 'eur',
+    proxy = undefined,
+  ) {
     const client = new Client(
       'https://stockx.com',
       {
@@ -16,4 +21,4 @@ export default class StockXScraper {
 
     this.products = new Product(client);
   }
-}
+};
