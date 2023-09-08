@@ -6,7 +6,7 @@ module.exports = class Entity {
     this.client = client;
   }
 
-  static parseResponse = (response) => {
+  static parseResponse = (response, queryKey) => {
     const $ = cheerio.load(response.data);
     let data = $('script#__NEXT_DATA__').text();
 
@@ -14,7 +14,16 @@ module.exports = class Entity {
       data = $('script[data-name=query]').text();
     }
 
-    return JSON.parse(data).props.pageProps.req.appContext.states.query.value
-      .queries[3].state;
+    const { queries } = JSON.parse(data).props.pageProps.req.appContext.states.query.value;
+
+    for (let i = 0; i < queries.length; i += 1) {
+      const query = queries[i];
+
+      if (query.queryKey[0] === queryKey) {
+        return query.state;
+      }
+    }
+
+    throw new Error();
   };
 };
