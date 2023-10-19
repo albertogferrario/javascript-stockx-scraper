@@ -33,6 +33,16 @@ module.exports = class Client extends Axios {
     super(args);
   }
 
+  async get(url, config) {
+    const response = await super.get(url, config);
+
+    if (response.status !== 200) {
+      throw Error(`Request error, status code: ${response.status}`);
+    }
+
+    return response;
+  }
+
   static makeCookiesString = (cookiesObject) => {
     let result = '';
 
