@@ -6,13 +6,14 @@ module.exports = class Client extends Axios {
     const args = {
       baseURL,
       headers: {
+        Host: (new URL(baseURL)).host,
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36',
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
         Accept:
-          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
         'Accept-Encoding': 'gzip, deflate, br',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Cache-Control': 'no-cache',
+        'Accept-Language': 'en-US;q=0.8,en;q=0.7',
+        'Cache-Control': 'max-age=0',
       },
     };
 
